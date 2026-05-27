@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "@prisma/client": "^6.15.0",
+    "@tailwindcss/vite": "^4.3.0",
+    "axios": "^1.16.1",
+    "prisma": "^6.15.0",
+    "react-router-dom": "^7.15.1",
+    "tailwindcss": "^4.3.0",
+    "zustand": "^5.0.13"
+  },
+  "scripts": {
+    "dev": "nodemon src/server.js"
+  }
+}
