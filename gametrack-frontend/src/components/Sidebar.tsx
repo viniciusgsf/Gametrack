@@ -1,3 +1,5 @@
+import {NavLink} from 'react-router-dom'
+
 function Sidebar() {
   return (
     <aside className="w-64 bg-slate-900 border-r border-slate-800 p-6">
@@ -6,17 +8,33 @@ function Sidebar() {
       </h1>
 
       <nav className="flex flex-col gap-4">
-        <button className="text-left hover:text-violet-400 transition">
-          Dashboard
-        </button>
+          <NavLink
+              to="/"
+              end
+              className={({ isActive }) =>
+                `px-4 py-3 rounded-xl transition ${
+                  isActive
+                    ? 'bg-violet-600 text-white'
+                    : 'text-slate-300 hover:bg-slate-800'
+                }`
+              }
+            >
+              Dashboard
+          </NavLink>
 
-        <button className="text-left hover:text-violet-400 transition">
-          Minha Biblioteca
-        </button>
+          <NavLink to="/library" className={({ isActive }) => 
+            `px-4 py-3 rounded-xl transition ${isActive ? 'bg-violet-600 text-white'
+             : 'text-slate-300 hover:bg-slate-800'}`}>
+            Minha Biblioteca
 
-        <button className="text-left hover:text-violet-400 transition">
-          Perfil
-        </button>
+          </NavLink>
+
+        <NavLink to="/profile" className={({ isActive }) => 
+            `px-4 py-3 rounded-xl transition ${isActive ? 'bg-violet-600 text-white'
+             : 'text-slate-300 hover:bg-slate-800'}`}>
+            Perfil
+
+          </NavLink>
       </nav>
     </aside>
   )
