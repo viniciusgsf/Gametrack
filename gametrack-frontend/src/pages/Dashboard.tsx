@@ -1,27 +1,22 @@
 import GameCard from '../components/GameCard'
+import {useEffect, useState} from 'react'
+import {api} from '../services/api'
+import type {Game} from '../types/game'
 
-const games = [
-  {
-    title: 'Elden Ring',
-    status: 'Finalizado',
-    image:
-      'https://images.unsplash.com/photo-1542751110-97427bbecf20'
-  },
-  {
-    title: 'Baldur’s Gate 3',
-    status: 'Jogando',
-    image:
-      'https://images.unsplash.com/photo-1511512578047-dfb367046420'
-  },
-  {
-    title: 'Cyberpunk 2077',
-    status: 'Quero Jogar',
-    image:
-      'https://images.unsplash.com/photo-1493711662062-fa541adb3fc8'
-  }
-]
+
 
 function Dashboard() {
+const [games, setGames] = useState<Game[]>([])
+
+
+useEffect(() => {
+    async function loadGames() {
+      const response = await api.get('/games')
+      setGames(response.data)
+    }
+
+    loadGames()
+  }, [])
   return (
     <div className="p-8">
       <div className="flex items-center justify-between mb-8">
@@ -35,14 +30,14 @@ function Dashboard() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-        {games.map((game) => (
-          <GameCard
-            key={game.title}
-            title={game.title}
-            status={game.status}
-            image={game.image}
-          />
-        ))}
+       {games.map((game) => (
+        <GameCard
+          key={game.id}
+          title={game.title}
+          status={game.status}
+          image="https://placehold.co/600x400"
+        />
+      ))}
       </div>
     </div>
   )
