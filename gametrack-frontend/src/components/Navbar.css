@@ -1,0 +1,27 @@
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  background: rgba(18, 7, 11, 0.88);
+  backdrop-filter: blur(14px);
+  box-shadow: inset 0 -1px 0 var(--border);
+}
+
+.brand-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #ffe5e6;
+  text-transform: uppercase;
+}
+
+.profile-pill {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ff4b5a, #7c0f1a);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06);
+}

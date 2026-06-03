@@ -1,23 +1,21 @@
-interface GamneCardProps {
-        title: string;
-        status: string;
-        image: string;
-    }
+import './GameCard.css'
 
+interface GameCardProps {
+  title: string;
+  status: string;
+  image: string;
+}
 
-function GameCard({ title, status, image }: GamneCardProps) {
+function GameCard({ title, status, image }: GameCardProps) {
 
     return (
-        <div className=" bg-slate-900 rounded-2x1 overflow-hidden hover:scale-[1.020] transition duration-300">
-        
-            <img src={image} alt={title} className="w-full h-48 object-cover" />
-        
+        <div className="game-card">
+            <img src={image} alt={title} className="game-card__image" />
 
-        <div className="p-4">
-            <h4 className="text-xl font-bold mb-2">{title}</h4>
-            <p className="text-gray-400">{status}</p>
-        
-        </div>
+            <div className="game-card__content">
+                <h4 className="game-card__title">{title}</h4>
+                <p className="game-card__status">{status}</p>
+            </div>
         </div>
     )
 

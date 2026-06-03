@@ -1,40 +1,39 @@
 import {NavLink} from 'react-router-dom'
+import './Sidebar.css'
 
 function Sidebar() {
   return (
-    <aside className="w-64 bg-slate-900 border-r border-slate-800 p-6">
-      <h1 className="text-2xl font-bold mb-10 text-violet-400">
-        GameTrack
-      </h1>
+    <aside className="sidebar">
+      <h1 className="brand">GameTrack</h1>
 
-      <nav className="flex flex-col gap-4">
-          <NavLink
-              to="/"
-              end
-              className={({ isActive }) =>
-                `px-4 py-3 rounded-xl transition ${
-                  isActive
-                    ? 'bg-violet-600 text-white'
-                    : 'text-slate-300 hover:bg-slate-800'
-                }`
-              }
-            >
-              Dashboard
-          </NavLink>
+      <nav className="nav-list">
+        <NavLink
+          to="/"
+          end
+          className={({ isActive }) =>
+            `nav-link${isActive ? ' active' : ''}`
+          }
+        >
+          Dashboard
+        </NavLink>
 
-          <NavLink to="/library" className={({ isActive }) => 
-            `px-4 py-3 rounded-xl transition ${isActive ? 'bg-violet-600 text-white'
-             : 'text-slate-300 hover:bg-slate-800'}`}>
-            Minha Biblioteca
+        <NavLink
+          to="/library"
+          className={({ isActive }) =>
+            `nav-link${isActive ? ' active' : ''}`
+          }
+        >
+          Minha Biblioteca
+        </NavLink>
 
-          </NavLink>
-
-        <NavLink to="/profile" className={({ isActive }) => 
-            `px-4 py-3 rounded-xl transition ${isActive ? 'bg-violet-600 text-white'
-             : 'text-slate-300 hover:bg-slate-800'}`}>
-            Perfil
-
-          </NavLink>
+        <NavLink
+          to="/profile"
+          className={({ isActive }) =>
+            `nav-link${isActive ? ' active' : ''}`
+          }
+        >
+          Perfil
+        </NavLink>
       </nav>
     </aside>
   )

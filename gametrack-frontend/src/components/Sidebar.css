@@ -1,0 +1,49 @@
+.sidebar {
+  width: 20rem;
+  min-height: 100vh;
+  padding: 2rem 1.5rem;
+  background: linear-gradient(180deg, rgba(20, 8, 11, 0.95), rgba(12, 5, 7, 0.98));
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: sticky;
+  top: 0;
+}
+
+.brand {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #ffb6ba;
+  letter-spacing: -0.04em;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 0.95rem 1.1rem;
+  border-radius: 1rem;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.02);
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  background: rgba(255, 91, 107, 0.14);
+  color: #fff;
+  transform: translateX(2px);
+}
+
+.nav-link.active {
+  background: rgba(255, 91, 107, 0.22);
+  color: #fff;
+  box-shadow: 0 10px 20px rgba(255, 91, 107, 0.12);
+}

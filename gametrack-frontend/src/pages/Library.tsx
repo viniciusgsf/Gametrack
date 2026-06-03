@@ -1,9 +1,9 @@
+import './Library.css'
+
 function Library() {
     return (
-        <div className="p-8">
-            <h1 className="text-4x1 font-bold"> 
-                Minha Biblioteca
-            </h1>
+        <div className="page-shell">
+            <h1 className="page-title">Minha Biblioteca</h1>
         </div>
     )
 }

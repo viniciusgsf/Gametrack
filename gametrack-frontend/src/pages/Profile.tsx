@@ -1,9 +1,9 @@
+import './Profile.css'
+
 function Profile() {
     return (
-        <div className="p-8">
-            <h1 className="text-4x1 font-bold"> 
-                Meu Perfil
-            </h1>
+        <div className="page-shell">
+            <h1 className="page-title">Meu Perfil</h1>
         </div>
     )
 }
