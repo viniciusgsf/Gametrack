@@ -2,11 +2,13 @@ require('dotenv').config()
 
 const express = require('express')
 const cors = require('cors')
+const gameRoutes = require('./routes/gameRoutes')
 
 const app = express()
 
 app.use(cors())
 app.use(express.json())
+app.use('/games', gameRoutes)
 
 app.get('/', (req, res) => {
   res.json({
@@ -20,24 +22,3 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
 
-app.get('/games', (req, res) => {
-  res.json([
-    {
-      id: '1',
-      title: 'Game 1',
-      genre: 'Action',
-      platform: 'PC',
-      status: 'Playing',
-      rating: 8.5
-    },
-    {
-      id: '2',
-      title: 'Game 2',
-      genre: 'RPG',
-      platform: 'PS5',
-      status: 'Completed',
-      rating: 9.0
-    }
-
-  ])
-})
