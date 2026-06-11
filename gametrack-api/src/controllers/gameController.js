@@ -45,8 +45,64 @@ const createGame = async (req, res) => {
 
 }
 
+const deleteGame = async (req, res) => {
+
+  try {
+    const { id } = req.params
+
+    await prisma.game.delete({
+      where: {
+        id
+      }
+    })
+    res.status(204).send()
+
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({
+      error: 'Erro ao deletar jogo'
+    })
+  }
+
+
+}
+
+const updateGame = async (req, res) => {
+  try {
+    const { id} = req.params
+    const {
+      title,
+      genre,
+      platform,
+      status,
+      rating
+  } = req.body 
+
+  const game = await prisma.game.update ({
+    where: {
+      id,
+    },
+    data: {
+      title,
+      genre,
+      platform,
+      status,
+      rating
+    }
+  })
+  res.json(game)
+
+  }  catch (error) {
+    console.error(error)
+    res.status(500).json({
+      error: 'Erro ao atualizar jogo'
+    })
+}}
+
 
 module.exports = {
     getGames,
-    createGame
+    createGame,
+    deleteGame,
+    updateGame
 }

@@ -10,6 +10,18 @@ function Dashboard() {
 const [games, setGames] = useState<Game[]>([])
 const navigate = useNavigate()
 
+const handleDelete = async (id: string) => {
+  try {
+    await api.delete(`/games/${id}`)
+
+    setGames(
+      games.filter((game) => game.id !== id)
+    )
+  } catch (error) {
+    console.error(error)
+  }
+}
+
 useEffect(() => {
     async function loadGames() {
       const response = await api.get('/games')
@@ -32,9 +44,11 @@ useEffect(() => {
         {games.map((game) => (
           <GameCard
             key={game.id}
+            id={game.id}
             title={game.title}
             status={game.status}
             image="https://placehold.co/600x400"
+            onDelete={handleDelete}
           />
         ))}
       </div>

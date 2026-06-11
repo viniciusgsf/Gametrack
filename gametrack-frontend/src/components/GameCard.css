@@ -41,3 +41,19 @@
   color: var(--text-muted);
   font-size: 0.95rem;
 }
+
+.game-card__delete {
+  margin-top: auto;
+  padding: 0.5rem 1rem;
+  background-color: #ff5b6b;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+game-card__delete:hover {
+  background-color: #ff3b4b;
+}

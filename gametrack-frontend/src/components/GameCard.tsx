@@ -1,12 +1,14 @@
 import './GameCard.css'
 
 interface GameCardProps {
-  title: string;
-  status: string;
-  image: string;
+    id: string
+    title: string
+    status: string
+    image: string
+    onDelete: (id:string) => void
 }
 
-function GameCard({ title, status, image }: GameCardProps) {
+function GameCard({ id,title, status, image, onDelete }: GameCardProps) {
 
     return (
         <div className="game-card">
@@ -15,6 +17,9 @@ function GameCard({ title, status, image }: GameCardProps) {
             <div className="game-card__content">
                 <h4 className="game-card__title">{title}</h4>
                 <p className="game-card__status">{status}</p>
+                <button className="game-card__delete" onClick={() => {onDelete(id)}}>
+                    Excluir
+                </button>
             </div>
         </div>
     )
