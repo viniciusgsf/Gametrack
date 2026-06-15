@@ -4,6 +4,7 @@
     "@tailwindcss/vite": "^4.3.0",
     "axios": "^1.16.1",
     "bcrypt": "^6.0.0",
+    "jsonwebtoken": "^9.0.3",
     "prisma": "^6.15.0",
     "react-router-dom": "^7.15.1",
     "tailwindcss": "^4.3.0",

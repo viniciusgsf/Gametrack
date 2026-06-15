@@ -1,5 +1,6 @@
 const express = require('express')
 
+const authMiddleware = require('../middlewares/authMiddleware')
 const {
     getGames,
     createGame,
@@ -9,8 +10,8 @@ const {
 
 const router = express.Router()
 
-router.get('/', getGames)
-router.post('/', createGame)
-router.delete('/:id', deleteGame)
-router.put('/:id', updateGame)
+router.get('/',authMiddleware, getGames)
+router.post('/', authMiddleware, createGame)
+router.delete('/:id', authMiddleware, deleteGame)
+router.put('/:id', authMiddleware, updateGame)
 module.exports = router

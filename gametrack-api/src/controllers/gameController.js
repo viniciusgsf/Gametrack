@@ -2,7 +2,11 @@ const prisma = require('../prisma/prisma')
 
 const getGames = async (req, res) => {
     try {
-      const games = await prisma.game.findMany()
+      const games = await prisma.game.findMany({
+        where: {
+          userId: req.user.id
+        }
+      })
 
       res.json(games)
     } catch (error) {
@@ -29,7 +33,7 @@ const createGame = async (req, res) => {
         platform,
         status,
         rating,
-        userId: "d090fe38-9d93-426a-95be-c63c35577f88"
+        userId: req.user.id
       }
     })
 
