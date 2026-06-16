@@ -35,7 +35,7 @@ useEffect(() => {
       <div className="dashboard-header">
         <h3 className="dashboard-title">Seus Jogos</h3>
 
-        <button onClick={() => navigate('/create-game')} className="dashboard-action">
+        <button onClick={() => navigate('/games/new')} className="dashboard-action">
           Adicionar Jogo
         </button>
       </div>
