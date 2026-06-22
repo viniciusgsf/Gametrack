@@ -60,6 +60,7 @@ useEffect(() => {
             id={game.id}
             title={game.title}
             status={game.status}
+            rating={game.rating ?? 0}
             image="https://placehold.co/600x400"
             onDelete={handleDelete}
             onEdit={handleEdit}

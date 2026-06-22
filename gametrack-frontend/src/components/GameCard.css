@@ -29,7 +29,18 @@
   gap: 0.5rem;
 }
 
+.game-card-content__props {
+  display: flex;
+  justify-content: space-between;
+}
+
 .game-card__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+.game-card__rating {
   font-size: 1.1rem;
   font-weight: 700;
   color: #fff;
