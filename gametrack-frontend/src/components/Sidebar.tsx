@@ -1,5 +1,6 @@
 import {NavLink} from 'react-router-dom'
 import './Sidebar.css'
+import Logout from './Logout'
 
 function Sidebar() {
   return (
@@ -8,7 +9,7 @@ function Sidebar() {
 
       <nav className="nav-list">
         <NavLink
-          to="/"
+          to="/dashboard"
           end
           className={({ isActive }) =>
             `nav-link${isActive ? ' active' : ''}`
@@ -35,6 +36,10 @@ function Sidebar() {
           Perfil
         </NavLink>
       </nav>
+
+      <div className="sidebar-footer">
+        <Logout className="logout-btn small" />
+      </div>
     </aside>
   )
 }

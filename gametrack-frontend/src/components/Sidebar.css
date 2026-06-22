@@ -2,7 +2,7 @@
   width: 20rem;
   min-height: 100vh;
   padding: 2rem 1.5rem;
-  background: linear-gradient(180deg, rgba(20, 8, 11, 0.95), rgba(12, 5, 7, 0.98));
+  background: linear-gradient(180deg, var(--surface), var(--surface-strong));
   border-right: 1px solid var(--border);
   display: flex;
   flex-direction: column;
@@ -14,7 +14,7 @@
 .brand {
   font-size: 1.75rem;
   font-weight: 800;
-  color: #ffb6ba;
+  color: var(--accent);
   letter-spacing: -0.04em;
 }
 
@@ -37,13 +37,22 @@
 }
 
 .nav-link:hover {
-  background: rgba(255, 91, 107, 0.14);
-  color: #fff;
+  background: var(--accent-soft);
+  color: var(--text);
   transform: translateX(2px);
 }
 
 .nav-link.active {
-  background: rgba(255, 91, 107, 0.22);
-  color: #fff;
-  box-shadow: 0 10px 20px rgba(255, 91, 107, 0.12);
+  background: var(--accent-soft);
+  color: var(--text);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar-footer {
+  margin-top: auto;
+}
+
+.logout-btn.small {
+  padding: 0.45rem 0.7rem;
+  font-size: 0.9rem;
 }

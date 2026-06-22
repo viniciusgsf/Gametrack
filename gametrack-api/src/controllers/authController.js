@@ -76,6 +76,25 @@ const login = async (req, res) => {
       })
     }
 
+    if (!email || !password) {
+      return res.status(400).json({
+        error: 'Todos os campos são obrigatórios'
+      })
+    }
+
+    if (password.length < 6) {
+      return res.status(400).json({
+        error: 'Senha deve ter pelo menos 6 caracteres'
+      })
+    } 
+
+    if (!email.includes('@')) {
+      return res.status(400).json({
+        error: 'Email inválido'
+      })
+    }
+
+
     const token = jwt.sign(
       {
         id: user.id,

@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {api} from '../services/api';
-import {useNavigate} from 'react-router-dom';
+import {useNavigate, useParams} from 'react-router-dom';
 
 function AddGame() {
     const navigate = useNavigate();
+    const {id} = useParams()
+
 
     const [title, setTitle] = useState('')
     const [genre, setGenre] =useState('')
@@ -17,20 +19,48 @@ function AddGame() {
         e.preventDefault()
 
         try {
-            await api.post('/games', {
-                title,
-                genre,
-                platform,
-                status,
-                rating
+            if (id) {
+            await api.put(`/games/${id}`, {
+              title,
+              genre,
+              platform,
+              status,
+              rating
             })
+          } else {
+            await api.post('/games', {
+              title,
+              genre,
+              platform,
+              status,
+              rating
+            })
+          }
 
-            navigate('/')
+            navigate('/dashboard')
         } catch(error) {
             console.error(error)
         }
     }
 
+    useEffect(() => {
+      if (!id) return
+
+      async function loadGame() {
+        const response =
+          await api.get(`/games/${id}`)
+
+        const game = response.data
+
+        setTitle(game.title)
+        setGenre(game.genre)
+        setPlatform(game.platform)
+        setStatus(game.status)
+        setRating(game.rating)
+      }
+
+      loadGame()
+    }, [id])
 
     return (
     <div className="p-8">
@@ -123,10 +153,10 @@ function AddGame() {
             setStatus(e.target.value)
           }>
             <option value="">--Selecione um status--</option>
-            <option value="playing">Jogando</option>
-            <option value="finished">Finalizado</option>
-            <option value="want-to-play">Quero Jogar</option>
-            <option value="abandoned">Abandonado</option>
+            <option value="Jogando">Jogando</option>
+            <option value="Finalizado">Finalizado</option>
+            <option value="Quero Jogar">Quero Jogar</option>
+            <option value="Abandonado">Abandonado</option>
 
         </select>
 

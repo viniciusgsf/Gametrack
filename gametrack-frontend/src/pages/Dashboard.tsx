@@ -11,15 +11,28 @@ const [games, setGames] = useState<Game[]>([])
 const navigate = useNavigate()
 
 const handleDelete = async (id: string) => {
+  const confirmed = window.confirm(
+    'Deseja realmente excluir este jogo?'
+  )
+
+  if (!confirmed) return
+
   try {
     await api.delete(`/games/${id}`)
 
-    setGames(
-      games.filter((game) => game.id !== id)
+    setGames((previousGames) =>
+      previousGames.filter(
+        (game) => game.id !== id
+      )
     )
+
   } catch (error) {
     console.error(error)
   }
+}
+
+const handleEdit = (id: string) => {
+  navigate(`/games/${id}/edit`)
 }
 
 useEffect(() => {
@@ -49,6 +62,7 @@ useEffect(() => {
             status={game.status}
             image="https://placehold.co/600x400"
             onDelete={handleDelete}
+            onEdit={handleEdit}
           />
         ))}
       </div>

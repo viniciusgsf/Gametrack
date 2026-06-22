@@ -2,16 +2,16 @@
 
 :root {
   color-scheme: dark;
-  --bg: #090507;
-  --surface: rgba(20, 8, 11, 0.96);
-  --surface-strong: #1f0d14;
-  --surface-soft: #12060b;
-  --border: rgba(214, 48, 64, 0.24);
-  --text: #f3eceb;
-  --text-muted: #a38a91;
-  --accent: #ff5b6b;
-  --accent-soft: rgba(255, 91, 107, 0.16);
-  --accent-strong: #e72f41;
+  --bg: #0f1724;
+  --surface: rgba(15, 23, 36, 0.9);
+  --surface-strong: #0b1220;
+  --surface-soft: #111821;
+  --border: rgba(79, 182, 181, 0.10);
+  --text: #e6eef0;
+  --text-muted: #9fb0b1;
+  --accent: #4fb6b5;
+  --accent-soft: rgba(79, 182, 181, 0.12);
+  --accent-strong: #2b8a89;
   --code-bg: rgba(255, 255, 255, 0.05);
   --shadow: 0 22px 60px rgba(0, 0, 0, 0.35);
   --radius: 1.5rem;

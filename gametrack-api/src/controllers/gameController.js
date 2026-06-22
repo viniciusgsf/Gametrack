@@ -103,10 +103,37 @@ const updateGame = async (req, res) => {
     })
 }}
 
+const getGameById = async (req, res) => {
+  try {
+    const { id } = req.params
+
+    const game = await prisma.game.findUnique({
+      where: {
+        id
+      }
+    })
+
+    if (!game) {
+      return res.status(404).json({
+        error: 'Jogo não encontrado'
+      })
+    }
+
+    res.json(game)
+
+  } catch (error) {
+    console.error(error)
+
+    res.status(500).json({
+      error: 'Erro ao buscar jogo'
+    })
+  }
+}
 
 module.exports = {
     getGames,
     createGame,
     deleteGame,
-    updateGame
+    updateGame,
+    getGameById
 }

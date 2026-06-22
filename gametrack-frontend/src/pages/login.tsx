@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { api } from '../services/api'
 import {useNavigate} from 'react-router-dom'
+import './login.css'
 
 function Login() {
   const [email, setEmail] = useState('')
@@ -26,7 +27,7 @@ function Login() {
         )
 
     console.log(response.data)
-    navigate('/')
+    navigate('/dashboard')
 
   } catch (error) {
     console.error(error)
@@ -34,16 +35,16 @@ function Login() {
 }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-950">
-      <form onSubmit={handleLogin} className="bg-slate-900 p-8 rounded-xl w-full max-w-md">
-        <h1 className="text-3xl font-bold text-white mb-6">
+    <div className="auth-container">
+      <form onSubmit={handleLogin} className="auth-form">
+        <h1 className="auth-title">
           Entrar
         </h1>
 
         <input
           type="email"
           placeholder="Email"
-          className="w-full mb-4 p-3 rounded bg-slate-800 text-white"
+          className="auth-input"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -51,17 +52,26 @@ function Login() {
         <input
           type="password"
           placeholder="Senha"
-          className="w-full mb-4 p-3 rounded bg-slate-800 text-white"
+          className="auth-input"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
 
         <button
           type="submit"
-          className="w-full bg-violet-600 py-3 rounded-lg"
+          className="auth-button"
         >
           Entrar
         </button>
+
+        <button
+          type="button"
+          className="auth-button secondary"
+          onClick={() => navigate('/register')}
+        >
+          Cadastre-se
+        </button>
+
       </form>
     </div>
   )

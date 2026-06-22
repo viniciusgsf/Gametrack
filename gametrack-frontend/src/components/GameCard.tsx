@@ -6,9 +6,11 @@ interface GameCardProps {
     status: string
     image: string
     onDelete: (id:string) => void
+    onEdit: (id:string) => void
+
 }
 
-function GameCard({ id,title, status, image, onDelete }: GameCardProps) {
+function GameCard({ id,title, status, image, onDelete, onEdit }: GameCardProps) {
 
     return (
         <div className="game-card">
@@ -19,6 +21,9 @@ function GameCard({ id,title, status, image, onDelete }: GameCardProps) {
                 <p className="game-card__status">{status}</p>
                 <button className="game-card__delete" onClick={() => {onDelete(id)}}>
                     Excluir
+                </button>
+                <button className="game-card__edit" onClick={() => {onEdit(id)}}>
+                    Editar
                 </button>
             </div>
         </div>
