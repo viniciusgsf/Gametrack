@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {api} from '../services/api';
 import {useNavigate, useParams} from 'react-router-dom';
 
+
 function AddGame() {
     const navigate = useNavigate();
     const {id} = useParams()
@@ -89,25 +90,27 @@ function AddGame() {
           }
           className="w-full p-3 rounded bg-slate-800"
         /> */}
+        
         <select name="Genre" id="Genre-Change" className="w-full p-3 rounded bg-slate-800"
             value={genre}
             onChange={(e) =>
             setGenre(e.target.value)
           }>
             <option value="">--Selecione um Gênero--</option>
-            <option value="action">Ação</option>
-            <option value="action-adventure">Ação-Aventura </option>
-            <option value="adventure">Aventura </option>
-            <option value="casual">Casual</option>
-            <option value="fighting">Luta</option>
+            <option value="Ação">Ação</option>
+            <option value="Ação-Aventura">Ação-Aventura </option>
+            <option value="Aventura">Aventura </option>
+            <option value="Casual">Casual</option>
+            <option value="Luta">Luta</option>
             <option value="FPS">FPS</option>
-            <option value="puzzle">Quebra-Cabeça </option>
-            <option value="racing">Corrida</option>
+            <option value="Quebra-Cabeça">Quebra-Cabeça </option>
+            <option value="Corrida">Corrida</option>
             <option value="RPG">RPG </option>
-            <option value="simulation">Simulação</option>
-            <option value="e-sports">Esportes </option>
-            <option value="strategy">Estratégia</option>
+            <option value="Simulação">Simulação</option>
+            <option value="E-sportes">Esportes </option>
+            <option value="Estratégia">Estratégia</option>
             <option value="Survival Horror ">Survival Horror</option>
+            <option value="Gatcha ">Gatcha </option>
 
 
 
@@ -130,11 +133,11 @@ function AddGame() {
             setPlatform(e.target.value)
           }>
             <option value="">--Selecione uma plataforma--</option>
-            <option value="pc">PC</option>
-            <option value="ps5">PS5</option>
-            <option value="xbox">Xbox</option>
-            <option value="switch">Switch</option>
-            <option value="mobile">Mobile</option>
+            <option value="PC">PC</option>
+            <option value="PS5">PS5</option>
+            <option value="Xbox">Xbox</option>
+            <option value="Switch">Switch</option>
+            <option value="Mobile">Mobile</option>
 
         </select>
 
