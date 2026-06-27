@@ -10,7 +10,7 @@ function Logout({ className }: Props) {
 
     const handleLogout = () => {
         localStorage.removeItem('token')
-        navigate('/login')
+        navigate('/')
     }
 
     if (!token) return null

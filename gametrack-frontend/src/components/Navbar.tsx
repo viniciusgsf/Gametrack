@@ -1,6 +1,6 @@
 import './Navbar.css'
 import { NavLink } from 'react-router-dom'
-import Logout from './Logout'
+// import Logout from './Logout'
 
 function Navbar() {
   const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null
@@ -14,7 +14,7 @@ function Navbar() {
       <div className="topbar-right">
         {token ? (
           <>
-            <Logout className="logout-btn" />
+            {/* <Logout className="logout-btn" /> */}
             <div className="profile-pill" />
           </>
         ) : (

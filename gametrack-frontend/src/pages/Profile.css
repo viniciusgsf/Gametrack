@@ -8,5 +8,103 @@
   font-weight: 800;
   letter-spacing: -0.03em;
   color: #fff;
-  margin: 0 0 1rem;
+  margin: 0 0 1.5rem;
+}
+
+.profile-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.profile-hero {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+.profile-hero-card {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  background: linear-gradient(135deg, rgba(255, 99, 113, 0.16), rgba(79, 182, 181, 0.12));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow);
+}
+
+.profile-avatar {
+  width: 7.5rem;
+  height: 7.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.14);
+}
+
+.profile-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.profile-badge {
+  width: fit-content;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(79, 182, 181, 0.14);
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.profile-name {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.profile-description {
+  color: var(--text-muted);
+  max-width: 38rem;
+  line-height: 1.6;
+}
+
+.account-settings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  align-items: center;
+  margin-top: 0.25rem;
+}
+
+.account-action {
+  border: none;
+  cursor: pointer;
+  padding: 0.8rem 1.1rem;
+  border-radius: 0.95rem;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.account-action:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.account-action--logout {
+  background: linear-gradient(135deg, #ff4f62, #b21d32);
+}
+
+.account-action--logout:hover {
+  background: linear-gradient(135deg, #ff6270, #c42c3f);
+}
+
+@media (max-width: 900px) {
+  .profile-hero {
+    grid-template-columns: 1fr;
+  }
 }
