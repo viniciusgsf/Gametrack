@@ -16,7 +16,9 @@
   font-weight: 800;
   color: var(--accent);
   letter-spacing: -0.04em;
+  cursor: pointer;
 }
+
 
 .nav-list {
   display: flex;

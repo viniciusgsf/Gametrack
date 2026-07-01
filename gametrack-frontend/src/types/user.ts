@@ -3,4 +3,5 @@ export interface User {
   username: string
   email: string
   createdAt: string
+  avatar?: string | null
 }

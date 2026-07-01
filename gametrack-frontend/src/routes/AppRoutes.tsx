@@ -5,6 +5,7 @@ import Dashboard from '../pages/Dashboard.tsx'
 import Library from '../pages/Library.tsx'
 import Profile from '../pages/Profile.tsx'
 import PrivateRoute from './PrivateRoute.tsx'
+import ChangePassword from '../pages/ChangePassword.tsx'
 
 import Login from '../pages/login.tsx'
 import Register from '../pages/Register.tsx'
@@ -22,6 +23,7 @@ function AppRoutes() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        
 
         {/* Privadas */}
         <Route
@@ -54,7 +56,11 @@ function AppRoutes() {
             path="/games/:id/edit"
             element={<AddGame />}
           />
+          <Route path="/change-password"
+           element={<ChangePassword />} />
         </Route>
+
+        
 
       </Routes>
     </BrowserRouter>

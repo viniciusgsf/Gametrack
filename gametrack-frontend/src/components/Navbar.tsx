@@ -1,10 +1,10 @@
 import './Navbar.css'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 // import Logout from './Logout'
 
 function Navbar() {
   const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null
-
+  const navigate = useNavigate()
   return (
     <header className="topbar">
       <div className="topbar-left">
@@ -15,7 +15,9 @@ function Navbar() {
         {token ? (
           <>
             {/* <Logout className="logout-btn" /> */}
-            <div className="profile-pill" />
+            <div className="profile-pill" onClick={() => navigate('/dashboard')}>
+              
+            </div>
           </>
         ) : (
           <NavLink to="/login" className="login-btn">

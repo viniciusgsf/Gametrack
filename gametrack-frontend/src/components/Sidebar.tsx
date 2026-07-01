@@ -1,11 +1,13 @@
-import {NavLink} from 'react-router-dom'
+import {NavLink, useNavigate} from 'react-router-dom'
 import './Sidebar.css'
 
 
 function Sidebar() {
+  const navigate = useNavigate()
+
   return (
     <aside className="sidebar">
-      <h1 className="brand">GameTrack</h1>
+      <h1 className="brand" onClick={() => navigate('/')}>GameTrack</h1>
 
       <nav className="nav-list">
         <NavLink

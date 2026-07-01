@@ -26,6 +26,13 @@ function Login() {
         response.data.token
         )
 
+
+    if (! email || ! password) {
+      alert('Email ou senha incorretos')
+      return
+    }
+
+
     console.log(response.data)
     navigate('/dashboard')
 
