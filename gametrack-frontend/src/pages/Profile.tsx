@@ -2,12 +2,14 @@ import './Profile.css'
 import ProfileCard from '../components/ProfileCard';
 import StatCard from '../components/StatCard';
 import Logout from '../components/Logout';
+import type {User} from '../types/user'
 import type {Game} from '../types/game'
 import {useEffect, useState} from 'react'
 import {api} from '../services/api'
 
 function Profile() {
 const [games, setGames] = useState<Game[]>([])
+const [user, setUser] = useState<User | null>(null)
 const totalGames = games.length
 
 const playingGames = games.filter(
@@ -29,13 +31,26 @@ const averageRating =
     : '0'
 
 useEffect(() => {
-    async function loadGames() {
-      const response = await api.get('/games')
-      setGames(response.data)
+    async function loadData() {
+      try {
+        const [gamesResponse, userResponse] = await Promise.all([
+            api.get('/games'),
+            api.get('/users/me')
+        ])
+
+        setGames(gamesResponse.data)
+        setUser(userResponse.data)
+        
+      } catch (error) {
+        console.error('Erro ao carregar dados:', error)
+      }
     }
 
-    loadGames()
+    loadData()
   }, [])
+    if (!user) {
+    return <p>Carregando...</p>
+    }
 
     return (
         <div className="page-shell">
@@ -51,14 +66,14 @@ useEffect(() => {
                         />
                         <div className="profile-copy">
                             <span className="profile-badge">Perfil</span>
-                            <h2 className="profile-name">Vinicius</h2>
+                            <h2 className="profile-name">{user.username}</h2>
                             <p className="profile-description">
                                 Gerencie sua coleção, acompanhe seu progresso e mantenha tudo organizado em um só lugar.
                             </p>
                         </div>
                     </div>
 
-                    <ProfileCard username='Vinicius' email='vinicius@teste.com' createdAt='27/06/26' />
+                    <ProfileCard username={user.username} email={user.email} createdAt={new Date(user.createdAt).toLocaleDateString() } />
                 </div>
 
                 <div className="stats-grid">
