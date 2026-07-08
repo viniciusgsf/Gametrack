@@ -9,36 +9,32 @@ function ChangePassword() {
     const [currentPassword, setCurrentPassword] = useState('')
     const [newPassword, setNewPassword] = useState('')
     const [confirmNewPassword, setConfirmNewPassword] = useState('')
+    const [feedback, setFeedback] = useState<{type:'success'|'error'; message:string} | null>(null)
 
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault()
 
         if (!currentPassword || !newPassword || !confirmNewPassword) {
-            alert('Todos os campos são obrigatórios')
+            setFeedback({ type: 'error', message: 'Preencha todos os campos.' })
             return
         }
 
         if (newPassword !== confirmNewPassword) {
-            alert('As senhas não coincidem')
+            setFeedback({ type: 'error', message: 'As senhas não coincidem.' })
             return
         }
 
         if (newPassword.length < 6) {
-            alert('Nova senha deve ter ao menos 6 caracteres')
+            setFeedback({ type: 'error', message: 'A nova senha deve ter ao menos 6 caracteres.' })
             return
         }
 
         try {
-            await api.put('/users/password', {
-                currentPassword,
-                newPassword
-            })
-
-            alert('Senha alterada com sucesso!')
+            await api.put('/users/password', { currentPassword, newPassword })
+            setFeedback({ type: 'success', message: 'Senha alterada com sucesso!' })
             navigate('/profile')
-        } catch (error) {
-            console.error(error)
-            alert('Erro ao alterar senha')
+        } catch (error: any) {
+            setFeedback({ type: 'error', message: error.response?.data?.error || 'Não foi possível alterar a senha.' })
         }
     }
 
@@ -46,27 +42,16 @@ function ChangePassword() {
         <div className="change-password-container">
             <form className="change-password-form" onSubmit={handleSubmit}>
                 <h2 className="change-password-title">Alterar senha</h2>
-                <input
-                    className="change-password-input"
-                    type="password"
-                    placeholder="Senha atual"
-                    value={currentPassword}
-                    onChange={(e) => setCurrentPassword(e.target.value)}
-                />
-                <input
-                    className="change-password-input"
-                    type="password"
-                    placeholder="Nova senha"
-                    value={newPassword}
-                    onChange={(e) => setNewPassword(e.target.value)}
-                />
-                <input
-                    className="change-password-input"
-                    type="password"
-                    placeholder="Confirmar nova senha"
-                    value={confirmNewPassword}
-                    onChange={(e) => setConfirmNewPassword(e.target.value)}
-                />
+
+                {feedback && (
+                    <div className={`auth-alert ${feedback.type}`}>
+                        {feedback.message}
+                    </div>
+                )}
+
+                <input className="change-password-input" type="password" placeholder="Senha atual" value={currentPassword} onChange={(e) => setCurrentPassword(e.target.value)} />
+                <input className="change-password-input" type="password" placeholder="Nova senha" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
+                <input className="change-password-input" type="password" placeholder="Confirmar nova senha" value={confirmNewPassword} onChange={(e) => setConfirmNewPassword(e.target.value)} />
                 <button className="change-password-button" type="submit">Alterar senha</button>
             </form>
         </div>

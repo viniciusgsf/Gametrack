@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {api} from '../services/api';
 import {useNavigate, useParams} from 'react-router-dom';
+import './AddGame.css';
 
 
 function AddGame() {
@@ -64,14 +65,15 @@ function AddGame() {
     }, [id])
 
     return (
-    <div className="p-8">
-      <h1 className="text-3xl font-bold mb-6">
-        Adicionar Jogo
-      </h1>
+    <div className="add-game-shell">
+      <div className="add-game-card">
+        <h1 className="add-game-title">
+          Adicionar Jogo
+        </h1>
 
       <form
         onSubmit={handleSubmit}
-        className="max-w-xl space-y-4"
+        className="add-game-form"
       >
         <input
           placeholder="Título"
@@ -79,7 +81,7 @@ function AddGame() {
           onChange={(e) =>
             setTitle(e.target.value)
           }
-          className="w-full p-3 rounded bg-slate-800"
+          className="add-game-input"
         />
 
         {/* <input
@@ -91,7 +93,7 @@ function AddGame() {
           className="w-full p-3 rounded bg-slate-800"
         /> */}
         
-        <select name="Genre" id="Genre-Change" className="w-full p-3 rounded bg-slate-800"
+        <select name="Genre" id="Genre-Change" className="add-game-select"
             value={genre}
             onChange={(e) =>
             setGenre(e.target.value)
@@ -127,7 +129,7 @@ function AddGame() {
           className="w-full p-3 rounded bg-slate-800"
         /> */}
 
-        <select name="Platform" id="platform-Change" className="w-full p-3 rounded bg-slate-800"
+        <select name="Platform" id="platform-Change" className="add-game-select"
             value={platform}
             onChange={(e) =>
             setPlatform(e.target.value)
@@ -150,7 +152,7 @@ function AddGame() {
           className="w-full p-3 rounded bg-slate-800"
         /> */}
 
-        <select name="Status" id="status-Change" className="w-full p-3 rounded bg-slate-800"
+        <select name="Status" id="status-Change" className="add-game-select"
             value={status}
             onChange={(e) =>
             setStatus(e.target.value)
@@ -172,15 +174,16 @@ function AddGame() {
           onChange={(e) =>
             setRating(e.target.value === '' ? '': Number(e.target.value))
           }
-          className="w-full p-3 rounded bg-slate-800"
+          className="add-game-input"
         />
 
         <button
-          className="bg-violet-600 px-6 py-3 rounded-xl"
+          className="add-game-button"
         >
           Salvar
         </button>
       </form>
+      </div>
     </div>
   )
 

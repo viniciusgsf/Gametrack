@@ -1,0 +1,63 @@
+.add-game-shell {
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.add-game-card {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(15, 23, 36, 0.82);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+.add-game-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 1.25rem;
+}
+
+.add-game-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+}
+
+.add-game-input,
+.add-game-select {
+  width: 100%;
+  padding: 0.8rem 0.9rem;
+  border-radius: 0.9rem;
+  background: rgba(255, 255, 255, 0.04);
+  color: #f8fafc;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-sizing: border-box;
+}
+
+.add-game-input:focus,
+.add-game-select:focus {
+  outline: none;
+  border-color: rgba(139, 92, 246, 0.45);
+  box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.16);
+}
+
+.add-game-button {
+  width: fit-content;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #8b5cf6, #4f46e5);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.add-game-button:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}

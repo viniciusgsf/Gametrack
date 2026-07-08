@@ -11,6 +11,9 @@ import Login from '../pages/login.tsx'
 import Register from '../pages/Register.tsx'
 import AddGame from '../pages/AddGame.tsx'
 import Home from '../pages/Home.tsx'
+import ForgotPassword from '../pages/ForgotPassword.tsx'
+import ResetPassword from '../pages/ResetPassword.tsx'
+import VerifyEmailSent from '../pages/VerifyEmailSent.tsx'
 
 
 function AppRoutes() {
@@ -23,7 +26,14 @@ function AppRoutes() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        
+        <Route path="/verify-email" element={<VerifyEmailSent />} />
+        <Route
+          path="/reset-password"
+          element={<ResetPassword />}/>
+        <Route
+              path="/verify-email-sent"
+              element={<VerifyEmailSent />}
+        />
 
         {/* Privadas */}
         <Route
@@ -58,10 +68,18 @@ function AppRoutes() {
           />
           <Route path="/change-password"
            element={<ChangePassword />} />
+
+          
+           
+          
+
+      
         </Route>
 
-        
-
+        <Route
+          path="/forgot-password"
+          element={<ForgotPassword />}/>
+          
       </Routes>
     </BrowserRouter>
   )

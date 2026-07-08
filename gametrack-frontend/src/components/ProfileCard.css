@@ -52,3 +52,14 @@
   color: #fff;
   font-weight: 600;
 }
+
+@media (max-width: 640px) {
+  .profile-card {
+    padding: 1.15rem;
+    border-radius: 1.1rem;
+  }
+
+  .profile-card__title {
+    font-size: 1.15rem;
+  }
+}

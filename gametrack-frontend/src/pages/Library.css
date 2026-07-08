@@ -1,6 +1,24 @@
 .page-shell {
+  position: relative;
   padding: 2rem;
   min-height: calc(100vh - 7rem);
+  background-image: url('https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?auto=format&fit=crop&w=1400&q=80');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.page-shell::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(2, 6, 23, 0.94), rgba(17, 24, 39, 0.8));
+  z-index: 0;
+}
+
+.page-shell > * {
+  position: relative;
+  z-index: 1;
 }
 
 .page-title {
@@ -17,12 +35,18 @@
   gap: 1rem;
   align-items: center;
   margin-bottom: 1.5rem;
+  padding: 1rem 1.1rem;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(15, 23, 36, 0.82);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
 }
 
 .library-filter,
 .library-search {
   border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(11, 18, 32, 0.95);
+  background: rgba(255, 255, 255, 0.04);
   color: var(--text);
   border-radius: 0.95rem;
   padding: 0.8rem 1rem;
@@ -41,8 +65,8 @@
 .library-filter:focus,
 .library-search:focus {
   outline: none;
-  border-color: rgba(79, 182, 181, 0.45);
-  box-shadow: 0 0 0 3px rgba(79, 182, 181, 0.16);
+  border-color: rgba(139, 92, 246, 0.45);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.16);
 }
 
 @media (max-width: 640px) {
